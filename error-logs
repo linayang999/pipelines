@@ -1,0 +1,40 @@
+github.com/argoproj/argo-workflows/v3 3.2.11 
+k8s.io/kubernetes => k8s.io/kubernetes v1.28.12
+
+17.14 go: downloading github.com/mitchellh/reflectwalk v1.0.2
+17.15 go: downloading gopkg.in/jcmturner/aescts.v1 v1.0.1
+17.16 go: downloading gopkg.in/jcmturner/rpc.v0 v0.0.2
+159.4 # github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:139:11: cannot use spec.Schema{…} (value of type "github.com/go-openapi/spec".Schema) as "k8s.io/kube-openapi/pkg/validation/spec".Schema value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:151:11: cannot use spec.Schema{…} (value of type "github.com/go-openapi/spec".Schema) as "k8s.io/kube-openapi/pkg/validation/spec".Schema value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:158:13: cannot use ref("github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1.TarStrategy") (value of type "k8s.io/kube-openapi/pkg/validation/spec".Ref) as "github.com/go-openapi/spec".Ref value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:163:13: cannot use ref("github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1.NoneStrategy") (value of type "k8s.io/kube-openapi/pkg/validation/spec".Ref) as "github.com/go-openapi/spec".Ref value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:168:13: cannot use ref("github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1.ZipStrategy") (value of type "k8s.io/kube-openapi/pkg/validation/spec".Ref) as "github.com/go-openapi/spec".Ref value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:181:11: cannot use spec.Schema{…} (value of type "github.com/go-openapi/spec".Schema) as "k8s.io/kube-openapi/pkg/validation/spec".Schema value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:200:20: cannot use ref("github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1.Parameter") (value of type "k8s.io/kube-openapi/pkg/validation/spec".Ref) as "github.com/go-openapi/spec".Ref value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:220:20: cannot use ref("github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1.Artifact") (value of type "k8s.io/kube-openapi/pkg/validation/spec".Ref) as "github.com/go-openapi/spec".Ref value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:280:21: cannot use ref("github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1.S3Artifact") (value of type "k8s.io/kube-openapi/pkg/validation/spec".Ref) as "github.com/go-openapi/spec".Ref value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:286:21: cannot use ref("github.com/argoproj/argo-workflows/v3/pkg/apis/workflow/v1alpha1.GitArtifact") (value of type "k8s.io/kube-openapi/pkg/validation/spec".Ref) as "github.com/go-openapi/spec".Ref value in struct literal
+159.4 /go/pkg/mod/github.com/argoproj/argo-workflows/v3@v3.2.11/pkg/apis/workflow/v1alpha1/openapi_generated.go:286:21: too many errors
+168.8 # github.com/mattn/go-sqlite3
+168.8 sqlite3-binding.c: In function 'sqlite3SelectNew':
+168.8 sqlite3-binding.c:121469:10: warning: function may return address of local variable [-Wreturn-local-addr]
+168.8 121469 |   return pNew;
+168.8        |          ^~~~
+168.8 sqlite3-binding.c:121431:10: note: declared here
+168.8 121431 |   Select standin;
+168.8        |          ^~~~~~~
+------
+
+ 2 warnings found (use docker --debug to expand):
+ - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 51)
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 17)
+Dockerfile:21
+--------------------
+  19 |     WORKDIR /go/src/github.com/kubeflow/pipelines
+  20 |     COPY . .
+  21 | >>> RUN GO111MODULE=on go build -o /bin/apiserver backend/src/apiserver/*.go
+  22 |     
+  23 |     
+--------------------
+ERROR: failed to solve: process "/bin/sh -c GO111MODULE=on go build -o /bin/apiserver backend/src/apiserver/*.go" did not complete successfully: exit code: 1
